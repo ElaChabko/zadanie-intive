@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="forms.css">
+    <script src="register.js"></script>
+
+    <title>Applikacja</title>
+</head>
+
+<body>
+    <header>
+        <ul class="action">
+                    <li>
+                <a href="login.html">Logowanie</a>
+
+            </li>
+        </ul>
+    </header>
+    <main>
+        <form action="register-form">
+            <label for="user-email">Twój e-mail:</label>
+            <input type="email" id="user-email" name="user-email" required />
+            <label for="user-email-confirmation">Potwierdź e-mail:</label>
+            <input type="email" id="user-email-confirmation" name="user-email-confirmation" required />
+            <label for="nickname">Nazwa użytkownika:</label>
+            <input type="text" id="nickname" name="nickname" required minlength="6" maxlength="16">
+            <label for="password">Hasło:</label>
+            <input type="text" id="password" name="password" required minlength="6">
+            <input type="submit" value="Zarejestruj" id="formSubmit">
+        </form>
+
+        <!-- <h1>Witaj w Applikacji!</h1>
+        <p>
+            Zaloguj się i sprawdź historię transkacji.
+        </p>
+        <p>Nie masz konta? Zarejestruj się!</p> -->
+    </main>
+    
+</body>
+<footer>
+    <a href="index.html">Strona startowa</a>
+</footer>
+
+</html>
