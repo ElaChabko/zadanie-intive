@@ -3,11 +3,12 @@ body {
     height: 100%;
 
 }
+
 body {
     display: flex;
     flex-direction: column;
-    color: rgb(67, 67, 67);
-    background-color: black;
+    color: #115DA9;
+    background: linear-gradient(135deg, white, #115da907);
     margin: auto;
 
 }
@@ -23,8 +24,14 @@ main {
 
 
 header {
-    background-color: rgb(78, 77, 77);
+    background: radial-gradient(#007bff, #115DA9);
     padding: 20px 0px;
+
+}
+img {
+    object-fit: cover;
+    margin: auto;
+    height: 50%;
 }
 
 .action {
@@ -39,7 +46,7 @@ li {
 
 li a {
     text-decoration: none;
-    color: rgb(21, 21, 21);
+    color: white;
     font-weight: 500;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
@@ -47,8 +54,8 @@ li a {
 }
 
 li a:hover {
-    color: rgb(78, 77, 77);
-    background-color: rgb(21, 21, 21);
+    color: white;
+    background-color: #007CFF;
     border-radius: 5px;
     padding: 10px;
 
@@ -57,14 +64,14 @@ li a:hover {
 h1 {
     margin: 100px 0;
     font-family: "Open Sans", sans-serif;
-    font-size: 700;
+    font-size: 1200;
     font-weight: bold;
     text-align: center;
 }
 
 p {
     font-family: "Open Sans", sans-serif;
-    font-size: 300;
+    font-size: 800;
     text-align: center;
 
 }
@@ -72,44 +79,63 @@ p {
 body #logOn {
     display: contents;
 }
+
 main #charts {
-display: flex;
+    display: flex;
 
 }
 
 #charts {
-    width: 80%;
+    width: 90%;
+    height: 50%;
     background-color: white;
     padding: 30px;
     margin: auto;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-#chart1,
-#chart2 {
+    margin-top: 2%;
+    margin-bottom: 2%;
     display: flex;
     flex: 2;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F5F6;
+    border-radius: 6px;
+
 }
 
-canvas {
+#chart1,
+#chart2 {
+    margin: auto;
+    padding: 1%;
+    object-fit: cover;
+    height: 400px;
+    width: 600px;
+}
+
+/* canvas {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
     width: 100%;
     margin: 10%;
 
-}
+} */
+
 body main #tabela {
-display: inline;
+    display: inline;
 
 }
+
 #tabela {
-    width: 80%;
-    background-color: rgb(97, 77, 77);
+    width: 90%;
+    height: 50%;
+    background-color: #F4F5F6;
+    border-radius: 6px;
     margin: auto;
     padding: 30px;
     margin-top: 0;
     object-fit: cover;
     object-position: center;
+    margin-bottom: 10%;
+    justify-content: center;
+    font-family: "Open Sans", sans-serif;
 }
