@@ -8,26 +8,142 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="forms.css">
+
+    <script src="script.js" defer></script>
+    <script src="register.js" defer></script>
+    <script src="login.js" defer></script>
     <title>Applikacja</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 </head>
 
 <body>
     <header>
         <ul class="action">
-            <li>
+            <li id="registerLink" style="display: none">
                 <a href="register.html">Rejestracja</a>
             </li>
-            <li>
+            <li id="loginLink" style="display: none">
                 <a href="login.html">Logowanie</a>
             </li>
         </ul>
     </header>
     <main>
-        <h1>Witaj w Applikacji!</h1>
-        <p>
-            Zaloguj się i sprawdź historię transkacji.
-        </p>
-        <p>Nie masz konta? Zarejestruj się!</p>
+        <div id="content"></div>
+        <section id="homeContent" style="display: none">
+            <h1>Witaj w Applikacji!</h1>
+            <p>
+                Zaloguj się i sprawdź historię transkacji.
+            </p>
+            <p>Nie masz konta? Zarejestruj się!</p>
+        </section>
+
+        <form action="register-form" id="signupForm" style="display: none">
+            <label for="user-email">Twój e-mail:</label>
+            <input type="email" id="userEmail" name="user-email" required />
+            <label for="user-email-confirmation">Potwierdź e-mail:</label>
+            <input type="email" id="userEmailConfirmation" name="user-email-confirmation" required />
+            <label for="nickname">Nazwa użytkownika:</label>
+            <input type="text" id="nickname" name="nickname" required minlength="6" maxlength="16">
+            <label for="password">Hasło:</label>
+            <input type="text" id="password" name="password" required minlength="6">
+            <input type="submit" value="Zarejestruj" id="formSubmit">
+        </form>
+
+        <form action="login-form" id="loginForm">
+            <label for="user-email">Twój e-mail:</label>
+            <input type="email" id="user-email" name="user-email" required minlength="6" maxlength="16" />
+            <label for="password">Hasło:</label>
+            <input type="text" id="password" name="password" required minlength="6">
+            <input type="submit" value="Zaloguj">
+        </form>
+    </div>
+    <section id="logOn" style="display:'">
+            <section id="charts">
+                <div id="chart1">
+                <div>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            
+                <script>
+                    let transaction = document.getElementById('pieChart').getContext('2d');
+                    let pieChart = new Chart(transaction, {
+                        type: 'pie',
+                        data: {
+                            labels: ["Wydatki", "Przychód"],
+                            datasets: [{
+                                data: [10, 10],
+                                borderColor: [
+                                    "#3cba9f",
+                                    "#ffa500",
+                                ],
+                                backgroundColor: [
+                                    "rgb(60,186,159,0.1)",
+                                    "rgb(255,165,0,0.1)",
+                                ],
+                                borderWidth: 2,
+                            }]
+                        },
+            
+                    });
+            
+                </script>
+                </div>
+                <div id="chart2">
+                    <div>
+                        <canvas id="barChart"></canvas>
+                    </div>
+                
+                    <script>
+                        let daySummary = document.getElementById('barChart').getContext('2d');
+                        let barChart = new Chart(daySummary, {
+                            type: 'pie',
+                            data: {
+                                labels: ["Wydatki", "Przychód"],
+                                datasets: [{
+                                    data: [10, 10],
+                                    borderColor: [
+                                        "#3cba9f",
+                                        "#ffa500",
+                                    ],
+                                    backgroundColor: [
+                                        "rgb(60,186,159,0.1)",
+                                        "rgb(255,165,0,0.1)",
+                                    ],
+                                    borderWidth: 2,
+                                }]
+                            },
+                
+                        });
+                
+                    </script>
+                    </div>
+            </section>
+            <section id="tabela">
+                <table>
+                    <colgroup span="5"></colgroup>
+                    <tr>
+                      <th>Data</th>
+                      <th>Typ tranzakcji</th>
+                      <th>Opis</th>
+                      <th>Kwota</th>
+                      <th>Saldo</th>
+                    </tr>
+                    <tr>
+                      <td>USA</td>
+                      <td>Washington, D.C.</td>
+                      <td>309 million</td>
+                      <td>English</td>
+                    </tr>
+                    <tr>
+                      <td>Sweden</td>
+                      <td>Stockholm</td>
+                      <td>9 million</td>
+                      <td>Swedish</td>
+                    </tr>
+                  </table>
+            </section>
+        </section>
     </main>
 
 </body>
