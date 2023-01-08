@@ -1,14 +1,16 @@
 form {
     align-items: center;
-    background-color: rgb(134, 134, 134);
+    background-color: #F4F5F6;
     border-radius: 6px;
-    font: 1em sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font: 1em;
     max-width: 25%;
     margin: 20px auto 48px auto;
     padding: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px 24px;
+    box-shadow: 1px 4px 8px #115DA9;
 
 }
 
@@ -26,13 +28,13 @@ textarea,
 fieldset {
     width: 80%px;
     height: 30px;
-    border: 1px solid #333;
+    border: 1px solid #007bff74;
     box-sizing: border-box;
 }
 
 
 input:invalid {
-    box-shadow: 0 0 4px 1px rgb(30, 12, 12);
+    box-shadow: 0 0 4px 1px rgb(255, 255, 255);
 }
 
 input:focus:invalid {
@@ -41,12 +43,13 @@ input:focus:invalid {
 }
 
 input[type="submit"] {
+    font-family: "Open Sans", sans-serif;
     width: 100px;
     padding: 10px 15px;
-    border: 1px solid #252525;
+    border: 1px solid #007bff74;
+    border-radius: 3px;
     color: white;
-    text-shadow: 0 0 1px black;
-    background: #1e1e1e;
+    background: #007bff74;
     position: relative;
     left: 180px;
 }
