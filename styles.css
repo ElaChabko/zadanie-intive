@@ -1,9 +1,26 @@
+html,
 body {
+    height: 100%;
+
+}
+body {
+    display: flex;
+    flex-direction: column;
     color: rgb(67, 67, 67);
     background-color: black;
     margin: auto;
 
 }
+
+main {
+
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 header {
     background-color: rgb(78, 77, 77);
@@ -28,8 +45,9 @@ li a {
     font-weight: bold;
     padding: 10px;
 }
+
 li a:hover {
-    color:rgb(78, 77, 77);
+    color: rgb(78, 77, 77);
     background-color: rgb(21, 21, 21);
     border-radius: 5px;
     padding: 10px;
@@ -49,4 +67,49 @@ p {
     font-size: 300;
     text-align: center;
 
+}
+
+body #logOn {
+    display: contents;
+}
+main #charts {
+display: flex;
+
+}
+
+#charts {
+    width: 80%;
+    background-color: white;
+    padding: 30px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+#chart1,
+#chart2 {
+    display: flex;
+    flex: 2;
+    justify-content: space-around;
+}
+
+canvas {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    margin: 10%;
+
+}
+body main #tabela {
+display: inline;
+
+}
+#tabela {
+    width: 80%;
+    background-color: rgb(97, 77, 77);
+    margin: auto;
+    padding: 30px;
+    margin-top: 0;
+    object-fit: cover;
+    object-position: center;
 }
