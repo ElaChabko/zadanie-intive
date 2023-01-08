@@ -36,7 +36,8 @@
                 Zaloguj się i sprawdź historię transkacji.
             </p>
             <p>Nie masz konta? Zarejestruj się!</p>
-            <img src="71Z_2201.w009.n001.101B.p14.101-ai.png" alt="mężczyzna ze złotymi monetami otrzymuje cashback na e-portfel. Obraz autorstwa redgreystock na Freepik">
+            <img src="71Z_2201.w009.n001.101B.p14.101-ai.png"
+                alt="mężczyzna ze złotymi monetami otrzymuje cashback na e-portfel. Obraz autorstwa redgreystock na Freepik">
         </section>
 
         <form action="register-form" id="signupForm" style="display: none">
@@ -64,9 +65,9 @@
 
             <section id="charts">
                 <div id="chart1">
-                    
-                        <canvas id="pieChart"></canvas>
-                    
+
+                    <canvas id="pieChart"></canvas>
+
 
                     <script>
                         let transaction = document.getElementById('pieChart').getContext('2d');
@@ -93,9 +94,9 @@
                     </script>
                 </div>
                 <div id="chart2">
-                    
-                        <canvas id="barChart"></canvas>
-                    
+
+                    <canvas id="barChart"></canvas>
+
 
                     <script>
                         const lZ = function leadingZero(i) {
@@ -103,7 +104,7 @@
                         }
                         const now = new Date();
                         const today = lZ(now.getDate()) + "." + lZ(now.getMonth() + 1);
-                        console.log(today);
+                        
                         const yesterday = lZ(now.getDate() - 1) + "." + lZ(now.getMonth() + 1);
                         const twoDaysBefore = lZ(now.getDate() - 2) + "." + lZ(now.getMonth() + 1);
 
@@ -124,7 +125,7 @@
                                     ]
                                 }],
                                 options: {
-                                    
+
                                     scales: {
                                         y: {
                                             yAxisID: 0
@@ -140,6 +141,7 @@
                 </div>
             </section>
             <section id="tabela">
+                
                 <table>
                     <colgroup span="5"></colgroup>
                     <tr>
@@ -150,16 +152,19 @@
                         <th>Saldo</th>
                     </tr>
                     <tr>
-                        <td>USA</td>
+                        <td> <script>today</script></td>
                         <td>Washington, D.C.</td>
                         <td>309 million</td>
                         <td>English</td>
                     </tr>
                     <tr>
-                        <td>Sweden</td>
+                        <td> <script>yesterday</script></td>
                         <td>Stockholm</td>
                         <td>9 million</td>
                         <td>Swedish</td>
+                    </tr>
+                    <tr>
+                        <td> <script>twoDaysBefore</script></td>
                     </tr>
                 </table>
             </section>
