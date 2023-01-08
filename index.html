@@ -36,6 +36,7 @@
                 Zaloguj się i sprawdź historię transkacji.
             </p>
             <p>Nie masz konta? Zarejestruj się!</p>
+            <img src="71Z_2201.w009.n001.101B.p14.101-ai.png" alt="mężczyzna ze złotymi monetami otrzymuje cashback na e-portfel. Obraz autorstwa redgreystock na Freepik">
         </section>
 
         <form action="register-form" id="signupForm" style="display: none">
@@ -57,46 +58,19 @@
             <input type="text" id="password" name="password" required minlength="6">
             <input type="submit" value="Zaloguj">
         </form>
-    </div>
-    <section id="logOn" style="display:'">
+        </div>
+
+        <section id="logOn" style="display:'">
+
             <section id="charts">
                 <div id="chart1">
-                <div>
-                    <canvas id="pieChart"></canvas>
-                </div>
-            
-                <script>
-                    let transaction = document.getElementById('pieChart').getContext('2d');
-                    let pieChart = new Chart(transaction, {
-                        type: 'pie',
-                        data: {
-                            labels: ["Wydatki", "Przychód"],
-                            datasets: [{
-                                data: [10, 10],
-                                borderColor: [
-                                    "#3cba9f",
-                                    "#ffa500",
-                                ],
-                                backgroundColor: [
-                                    "rgb(60,186,159,0.1)",
-                                    "rgb(255,165,0,0.1)",
-                                ],
-                                borderWidth: 2,
-                            }]
-                        },
-            
-                    });
-            
-                </script>
-                </div>
-                <div id="chart2">
-                    <div>
-                        <canvas id="barChart"></canvas>
-                    </div>
-                
+                    
+                        <canvas id="pieChart"></canvas>
+                    
+
                     <script>
-                        let daySummary = document.getElementById('barChart').getContext('2d');
-                        let barChart = new Chart(daySummary, {
+                        let transaction = document.getElementById('pieChart').getContext('2d');
+                        let pieChart = new Chart(transaction, {
                             type: 'pie',
                             data: {
                                 labels: ["Wydatki", "Przychód"],
@@ -113,35 +87,81 @@
                                     borderWidth: 2,
                                 }]
                             },
-                
+
                         });
-                
+
                     </script>
-                    </div>
+                </div>
+                <div id="chart2">
+                    
+                        <canvas id="barChart"></canvas>
+                    
+
+                    <script>
+                        const lZ = function leadingZero(i) {
+                            return `${i}`.padStart(2, "0");
+                        }
+                        const now = new Date();
+                        const today = lZ(now.getDate()) + "." + lZ(now.getMonth() + 1);
+                        console.log(today);
+                        const yesterday = lZ(now.getDate() - 1) + "." + lZ(now.getMonth() + 1);
+                        const twoDaysBefore = lZ(now.getDate() - 2) + "." + lZ(now.getMonth() + 1);
+
+
+
+                        let daySummary = document.getElementById('barChart').getContext('2d');
+                        let barChart = new Chart(daySummary, {
+                            type: 'bar',
+                            data: {
+                                labels: [today, yesterday, twoDaysBefore],
+                                datasets: [{
+                                    label: "Saldo",
+                                    data: [65, 59, 80],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)',
+                                        'rgba(255, 205, 86, 0.2)'
+                                    ]
+                                }],
+                                options: {
+                                    
+                                    scales: {
+                                        y: {
+                                            yAxisID: 0
+                                        }
+                                    },
+                                    responsive: false,
+
+                                }
+                            },
+                        });
+
+                    </script>
+                </div>
             </section>
             <section id="tabela">
                 <table>
                     <colgroup span="5"></colgroup>
                     <tr>
-                      <th>Data</th>
-                      <th>Typ tranzakcji</th>
-                      <th>Opis</th>
-                      <th>Kwota</th>
-                      <th>Saldo</th>
+                        <th>Data</th>
+                        <th>Typ tranzakcji</th>
+                        <th>Opis</th>
+                        <th>Kwota</th>
+                        <th>Saldo</th>
                     </tr>
                     <tr>
-                      <td>USA</td>
-                      <td>Washington, D.C.</td>
-                      <td>309 million</td>
-                      <td>English</td>
+                        <td>USA</td>
+                        <td>Washington, D.C.</td>
+                        <td>309 million</td>
+                        <td>English</td>
                     </tr>
                     <tr>
-                      <td>Sweden</td>
-                      <td>Stockholm</td>
-                      <td>9 million</td>
-                      <td>Swedish</td>
+                        <td>Sweden</td>
+                        <td>Stockholm</td>
+                        <td>9 million</td>
+                        <td>Swedish</td>
                     </tr>
-                  </table>
+                </table>
             </section>
         </section>
     </main>
