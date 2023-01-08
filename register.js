@@ -1,36 +1,32 @@
 
- 
-        var mail = document.getElementById("user-email");
-        var mailConf = document.getElementById("user-email-confirmation");
-        var nick = document.getElementById("nickname");
-        var pass = document.getElementById("password");
+const mail = document.getElementById("userEmail");
+const mailConf = document.getElementById("userEmailConfirmation");
+const nick = document.getElementById("nickname");
+const pass = document.getElementById("password");
+
+let mailInputTouched = false;
 
 
-        if (mailConf != mail)
-        {
-          alert("Błędny adres e-mail")
-        }
-
-
-
-
-        {/* {  
-  for(var i = 0; i < users.length; i++){
-    if((user == users[i]) && (pass == passwords[i]))
-      return true;
-  }
-  return false;
+if (mailInputTouched && mailConf != mail) {
+  alert("Błędny adres e-mail")
 }
-function check()
-  var user = document.form1.user.value;
-  var pass = document.form1.pass.value;
-  if(!sprawdz_haslo(user, pass)){
-      alert('Niepoprawne hasło!');
-  } 
-  else {
-    document.location.href = "log-on.html";
-  } */}
-        {/* document.cookie = "nazwa=wartosc"
-        document.cookie = encodeURIComponent("nazwa użytkownika") + "=" + encodeURIComponent("Karol Nowak");
-        console.log(document.cookie); //"nazwa%20u%C5%BCytkownika=Karol%20Nowak"
-         */}
+
+const signupForm = document.querySelector("#signupForm");
+
+signupForm.addEventListener("submit", function (event) {
+  event.preventDefault()
+  console.log (event)
+  const nickname = event.target.nickname.value;
+  const userEmail = event.target.userEmail.value;
+  const userEmailConfirmation = event.target.userEmailConfirmation.value;
+  const password = event.target.password.value;
+
+
+})
+
+  // muszę zapiąć eventlistener na przycisku subbmit, w funkcji która obsłuzy to na początek możesz sobie zrobić event.preventDeafult - żeby nie przechodził do nowej srtony
+  // na początek concol.logo - żeby zobaczyć wartości z formularza,
+  // jak je bd mieć to myśl jak zapisać do local storage
+
+
+
