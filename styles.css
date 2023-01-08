@@ -125,7 +125,7 @@ body main #tabela {
 
 }
 
-#tabela {
+body main #tabela {
     width: 90%;
     height: 50%;
     background-color: #F4F5F6;
@@ -133,9 +133,36 @@ body main #tabela {
     margin: auto;
     padding: 30px;
     margin-top: 0;
+    display: flex;
     object-fit: cover;
     object-position: center;
     margin-bottom: 10%;
     justify-content: center;
     font-family: "Open Sans", sans-serif;
+}
+table {
+    
+    display: flex;
+    flex: 5;
+    justify-content: center;
+    align-items: center;
+
+}
+tbody {
+    width: 80%;
+    justify-content: center;
+    align-items: center
+}
+th,
+td {
+    margin: auto;
+    padding: 15px;
+}
+tr {
+    margin: auto;
+    padding: 15px;
+    
+}
+th {
+    background-color: white;
 }
