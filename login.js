@@ -1,15 +1,7 @@
-function authenticate(email, password) {
-    if (email = "exists") {
-        if (password = "matches email") {
-            // set localStorage { user: 'email' }
-            return "login"; // @TODO handle login
-        }
-    
-        return "wrong email or password" // @TODO set form error
-    }
-
-    return "email nie znajduje się w bazie" // @TODO handle redirect to register
-}
+if (localStorage.getItem(userEmail)){
+    localStorage.setItem(userEmail, password);
+    localStorage.setItem('loggedIn', true);
+  };
 
 const loginForm = document.querySelector("#loginForm");
 loginForm.addEventListener("submit", function (event) {
@@ -20,3 +12,20 @@ loginForm.addEventListener("submit", function (event) {
 
     authenticate(userEmail, password);
 })
+
+function authenticate(userEmail, password) {
+    if (!localStorage.getItem(userEmail))
+    return alert("Email nie znajduje się w bazie. Zarejestruj się"); 
+
+    console.log(userEmail,password);
+    if (localStorage.getItem(userEmail) === password){
+        localStorage.setItem('loggedIn', true);
+        window.location = 'index.html?page=logOn';
+      } 
+            
+        return "Błędny e-mail lub hasło";
+    
+    
+
+    
+}
