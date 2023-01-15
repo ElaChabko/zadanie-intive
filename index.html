@@ -20,17 +20,17 @@
 <body>
     <header>
         <ul class="action">
-            <li id="registerLink" style="display: none">
+            <li id="registerLink" style="display: none;">
                 <a href="register.html">Rejestracja</a>
             </li>
-            <li id="loginLink" style="display: none">
+            <li id="loginLink" style="display: none;">
                 <a href="login.html">Logowanie</a>
             </li>
         </ul>
     </header>
     <main>
         <div id="content"></div>
-        <section id="homeContent" style="display: none">
+        <section id="homeContent" style="display: none;">
             <h1>Witaj w Applikacji!</h1>
             <p>
                 Zaloguj się i sprawdź historię transkacji.
@@ -40,11 +40,11 @@
                 alt="mężczyzna ze złotymi monetami otrzymuje cashback na e-portfel. Obraz autorstwa redgreystock na Freepik">
         </section>
 
-        <form action="register-form" id="signupForm" style="display: none">
-            <label for="user-email">Twój e-mail:</label>
-            <input type="email" id="userEmail" name="user-email" required />
-            <label for="user-email-confirmation">Potwierdź e-mail:</label>
-            <input type="email" id="userEmailConfirmation" name="user-email-confirmation" required />
+        <form action="register-form" id="signupForm" style="display: none;">
+            <label for="userEmail">Twój e-mail:</label>
+            <input type="email" id="userEmail" name="userEmail" required />
+            <label for="userEmailConfirmation">Potwierdź e-mail:</label>
+            <input type="email" id="userEmailConfirmation" name="userEmailConfirmation" required />
             <label for="nickname">Nazwa użytkownika:</label>
             <input type="text" id="nickname" name="nickname" required minlength="6" maxlength="16">
             <label for="password">Hasło:</label>
@@ -53,96 +53,26 @@
         </form>
 
         <form action="login-form" id="loginForm">
-            <label for="user-email">Twój e-mail:</label>
-            <input type="email" id="user-email" name="user-email" required minlength="6" maxlength="16" />
+            <label for="userEmail">Twój e-mail:</label>
+            <input type="email" id="userEmail" name="userEmail" required minlength="6" maxlength="16" />
             <label for="password">Hasło:</label>
             <input type="text" id="password" name="password" required minlength="6">
             <input type="submit" value="Zaloguj">
         </form>
         </div>
 
-        <section id="logOn" style="display:'">
-
+        <section id="logOn" style="display:''">
             <section id="charts">
                 <div id="chart1">
-
                     <canvas id="pieChart"></canvas>
-
-
-                    <script>
-                        let transaction = document.getElementById('pieChart').getContext('2d');
-                        let pieChart = new Chart(transaction, {
-                            type: 'pie',
-                            data: {
-                                labels: ["Wydatki", "Przychód"],
-                                datasets: [{
-                                    data: [10, 10],
-                                    borderColor: [
-                                        "#3cba9f",
-                                        "#ffa500",
-                                    ],
-                                    backgroundColor: [
-                                        "rgb(60,186,159,0.1)",
-                                        "rgb(255,165,0,0.1)",
-                                    ],
-                                    borderWidth: 2,
-                                }]
-                            },
-
-                        });
-
-                    </script>
                 </div>
                 <div id="chart2">
-
                     <canvas id="barChart"></canvas>
-
-
-                    <script>
-                        const lZ = function leadingZero(i) {
-                            return `${i}`.padStart(2, "0");
-                        }
-                        const now = new Date();
-                        const today = lZ(now.getDate()) + "." + lZ(now.getMonth() + 1);
-                        
-                        const yesterday = lZ(now.getDate() - 1) + "." + lZ(now.getMonth() + 1);
-                        const twoDaysBefore = lZ(now.getDate() - 2) + "." + lZ(now.getMonth() + 1);
-
-
-
-                        let daySummary = document.getElementById('barChart').getContext('2d');
-                        let barChart = new Chart(daySummary, {
-                            type: 'bar',
-                            data: {
-                                labels: [today, yesterday, twoDaysBefore],
-                                datasets: [{
-                                    label: "Saldo",
-                                    data: [65, 59, 80],
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)',
-                                        'rgba(255, 159, 64, 0.2)',
-                                        'rgba(255, 205, 86, 0.2)'
-                                    ]
-                                }],
-                                options: {
-
-                                    scales: {
-                                        y: {
-                                            yAxisID: 0
-                                        }
-                                    },
-                                    responsive: false,
-
-                                }
-                            },
-                        });
-
-                    </script>
                 </div>
             </section>
             <section id="tabela">
-                
-                <table>
+
+                <table id="transactionsTable">
                     <colgroup span="5"></colgroup>
                     <tr>
                         <th>Data</th>
@@ -151,26 +81,92 @@
                         <th>Kwota</th>
                         <th>Saldo</th>
                     </tr>
-                    <tr>
-                        <td> <script>today</script></td>
-                        <td>Washington, D.C.</td>
-                        <td>309 million</td>
-                        <td>English</td>
-                    </tr>
-                    <tr>
-                        <td> <script>yesterday</script></td>
-                        <td>Stockholm</td>
-                        <td>9 million</td>
-                        <td>Swedish</td>
-                    </tr>
-                    <tr>
-                        <td> <script>twoDaysBefore</script></td>
-                    </tr>
+
                 </table>
+
             </section>
         </section>
     </main>
-
 </body>
+
+
+<script>
+    async function fetchData(url = '') {
+        const response = await fetch(url);
+        return response.json();
+    }
+
+    function createChart(context, type, labels, data) {
+        let barChart = new Chart(context, {
+            type: type,
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Saldo",
+                    data: data,
+                    borderColor: '#36A2EB',
+                    backgroundColor: '#9BD0F5',
+                }],
+                options: {
+
+                    responsive: false,
+                }
+            },
+        });
+    }
+
+    function generateTable(data) {
+        data.transactions.forEach(transaction => {
+            // console.log(transaction)
+            const rowElement = document.createElement("tr");
+            const cellElement = document.createElement("td");
+            cellElement.innerHTML = transaction.date;
+            const cellElement2 = document.createElement("td");
+            cellElement2.innerHTML = data.transacationTypes[transaction.type];
+            const cellElement3 = document.createElement("td");
+            cellElement3.innerHTML = transaction.description;
+            const cellElement4 = document.createElement("td");
+            cellElement4.innerHTML = transaction.amount;
+            const cellElement5 = document.createElement("td");
+            cellElement5.innerHTML = transaction.balance;
+            rowElement.appendChild(cellElement);
+            rowElement.appendChild(cellElement2);
+            rowElement.appendChild(cellElement3);
+            rowElement.appendChild(cellElement4);
+            rowElement.appendChild(cellElement5);
+
+            document.querySelector('#transactionsTable tbody').appendChild(rowElement);
+        })
+    }
+
+    const daySummaryChart = document.getElementById('barChart').getContext('2d');
+    const transactionChart = document.getElementById('pieChart').getContext('2d');
+
+    fetchData('https://api.npoint.io/38edf0c5f3eb9ac768bd')
+        .then(data => {
+
+            const daySummaryLabels = data.transactions.map(element => element.date);
+            const daySummaryData = data.transactions.map(element => element.balance);
+            createChart(daySummaryChart, 'bar', daySummaryLabels, daySummaryData);
+
+            const transactionTypeId = Object.keys(data.transacationTypes);
+            const transactionsQty = transactionTypeId.map((type) => {
+                const count = data.transactions.filter(element => {
+
+                    if (element.type == type) {
+                        return true;
+                    }
+
+                    return false;
+                }).length;
+
+                return count;
+            }
+            )
+            createChart(transactionChart, 'pie', Object.values(data.transacationTypes), transactionsQty);
+
+            generateTable(data)
+        })
+</script>
 
 </html>
