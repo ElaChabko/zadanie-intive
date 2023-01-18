@@ -75,7 +75,7 @@
                     <canvas id="barChart"></canvas>
                 </div>
             </section>
-                <section id="tableContent">
+            <section id="tableContent">
                 <table id="transactionsTable">
                     <colgroup span="5"></colgroup>
                     <tr>
@@ -90,6 +90,7 @@
         </section>
     </main>
 </body>
+
 
 <script>
     async function fetchData(url = '') {
@@ -119,11 +120,27 @@
     function generateTable(data) {
         data.transactions.forEach(transaction => {
             // console.log(transaction)
+            const iconElement = document.createElement('img');
+            iconElement.classList.add("iconElement");
+            if (transaction.type === 1) {
+                iconElement.src = 'commerce.png';
+            } else  if(transaction.type === 2){
+                iconElement.src = 'deal.png';
+            } else  if(transaction.type === 3){
+                iconElement.src = 'money-transfer.png';
+            } else  if(transaction.type === 4){
+                iconElement.src = 'online-payment.png';
+            }
+
+            const textElement = document.createElement('span');
+            textElement.classList.add("textElement");
+            textElement.innerHTML = data.transacationTypes[transaction.type];
             const rowElement = document.createElement("tr");
             const cellElement = document.createElement("td");
             cellElement.innerHTML = transaction.date;
             const cellElement2 = document.createElement("td");
-            cellElement2.innerHTML = data.transacationTypes[transaction.type];
+            cellElement2.appendChild(iconElement);
+            cellElement2.appendChild(textElement);
             const cellElement3 = document.createElement("td");
             cellElement3.innerHTML = transaction.description;
             const cellElement4 = document.createElement("td");
@@ -168,4 +185,5 @@
             generateTable(data)
         })
 </script>
+
 </html>
