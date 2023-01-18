@@ -3,13 +3,11 @@ form {
     background-color: #F4F5F6;
     border-radius: 6px;
     font-family: "Open Sans", sans-serif;
-    font: 1em;
-    max-width: 25%;
-    margin: 20px auto 48px auto;
-    padding: 30px;
+    margin: 2em;
+    padding: 1.2em;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px 24px;
+    gap: 0.75em;
     box-shadow: 1px 4px 8px #115DA9;
 
 }
