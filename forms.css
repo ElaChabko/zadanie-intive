@@ -51,3 +51,7 @@ input[type="submit"] {
     position: relative;
     left: 180px;
 }
+#loginForm,
+#signupForm {
+     margin: 20em auto;
+}
