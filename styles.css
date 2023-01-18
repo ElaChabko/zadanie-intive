@@ -3,14 +3,11 @@ body {
     height: 100%;
     margin: auto;
     position: relative;
-
 }
 
 body {
     color: #115DA9;
     background: linear-gradient(135deg, white, #115da907);
-    margin: auto;
-
 }
 
 main {
@@ -19,7 +16,6 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin:20em auto;
 }
 
 
@@ -31,7 +27,6 @@ header {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-
 }
 
 img {
@@ -65,7 +60,6 @@ li a:hover {
     background-color: #007CFF;
     border-radius: 5px;
     padding: 10px;
-
 }
 
 
@@ -81,7 +75,6 @@ p {
     font-family: "Open Sans", sans-serif;
     font-size: 1em;
     text-align: center;
-
 }
 
 body #logOn {
@@ -89,61 +82,49 @@ body #logOn {
 }
 
 main #charts {
-    display: flex;
+    margin: 2em;
+}
 
+#homeContent {
+    margin: 18em;
 }
 
 #charts {
-    width: 90%;
-    height: 50%;
-    background-color: white;
-    padding: 30px;
-    margin: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    padding: 1em;
     display: flex;
     flex: 2;
-    /* justify-content: center; */
+    justify-content: space-around;
     align-items: center;
     background-color: #F4F5F6;
     border-radius: 6px;
-
+    width: 90%;
 }
+
 
 #chart1,
 #chart2 {
     margin: auto;
     padding: 1%;
-    object-fit: cover;
-    height: 400px;
-    width: 600px;
 }
 
-/* canvas {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    margin: 10%;
+#pieChart,
+#barChart {
+    height: 16em;
+    width: 32em;
+}
 
-} */
-
-body main #tabela {
+body main #tableContent {
     display: inline;
-
 }
 
-body main #tabela {
+body main #tableContent {
     width: 90%;
     height: 50%;
     background-color: #F4F5F6;
     border-radius: 6px;
-    margin: auto;
-    padding: 30px;
-    margin-top: 0;
+    margin: 2em 0;
+    padding: 1em;
     display: flex;
-    object-fit: cover;
-    object-position: center;
     margin-bottom: 10%;
     justify-content: center;
     font-family: "Open Sans", sans-serif;
@@ -173,9 +154,81 @@ td {
 tr {
     margin: auto;
     padding: 15px;
-
 }
 
 th {
     background-color: white;
+}
+
+.iconElement {
+    display: none;
+}
+
+/* media queries */
+@media (max-width: 480px) {
+    header {
+        justify-content: center;
+    }
+
+    main {
+        margin: auto;
+        display: inline;
+    }
+
+    #homeContent {
+        margin: 4em 1em;
+    }
+
+    #loginForm,
+    #signupForm {
+        margin: 10em 1em;
+    }
+
+    img {
+        height: 12em;
+    }
+
+    body #logOn {
+        display: contents;
+    }
+
+    main #charts {
+        margin: 0.25em;
+    }
+
+    #charts {
+        justify-content: start;
+        height: 40%;
+    }
+
+    #pieChart,
+    #barChart {
+        height: 13em;
+        width: 24em;
+    }
+
+    body main #tableContent {
+        margin: auto;
+        height: auto;
+    }
+
+    th,
+    td {
+        margin: auto;
+        padding: 0.5em;
+    }
+
+    tr {
+        margin: auto;
+        padding: 0.5em;
+    }
+
+    .textElement {
+        display: none;
+    }
+
+    .iconElement {
+        height: 24px;
+        display: block;
+    }
 }
