@@ -11,6 +11,7 @@ const loginLink = document.querySelector("#loginLink");
 const homeContent = document.querySelector("#homeContent");
 const signupForm = document.querySelector("#signupForm");
 const logOn = document.querySelector("#logOn");
+const logOutLink = document.querySelector("#logOutLink");
 
 if(activePage === "home") {
     registerLink.style.display = '';
@@ -19,6 +20,7 @@ if(activePage === "home") {
     signupForm.style.display = 'none';
     loginForm.style.display = 'none';
     logOn.style.display = 'none';
+    logOutLink.style.display = 'none';
 }
 
 if(activePage === "register") {
@@ -28,6 +30,7 @@ if(activePage === "register") {
     signupForm.style.display = '';
     loginForm.style.display = 'none';
     logOn.style.display = 'none';
+    logOutLink.style.display = 'none';
 
 }
 
@@ -38,6 +41,7 @@ if(activePage === "login") {
     signupForm.style.display = 'none';
     loginForm.style.display = '';
     logOn.style.display = 'none';
+    logOutLink.style.display = 'none';
 
 }
 
@@ -48,6 +52,7 @@ if(activePage === "logOn") {
     signupForm.style.display = 'none';
     loginForm.style.display = 'none';
     logOn.style.display = '';
+    logOutLink.style.display = '';
 
 }
 
@@ -78,5 +83,15 @@ logOn.addEventListener("click", function (event) {
     activePage = "logOn";
     // set url
     location.href = "index.html?page=logOn";
+
+})
+
+logOutLink.addEventListener("click", function (event) {
+    event.stopImmediatePropagation();
+    event.preventDefault();
+    localStorage.removeItem('loggedIn');
+    activePage = "home";
+    // set url
+    location.href = "index.html";
 
 })
