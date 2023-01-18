@@ -75,8 +75,7 @@
                     <canvas id="barChart"></canvas>
                 </div>
             </section>
-            <section id="tabela">
-
+                <section id="tableContent">
                 <table id="transactionsTable">
                     <colgroup span="5"></colgroup>
                     <tr>
@@ -86,14 +85,11 @@
                         <th>Kwota</th>
                         <th>Saldo</th>
                     </tr>
-
                 </table>
-
             </section>
         </section>
     </main>
 </body>
-
 
 <script>
     async function fetchData(url = '') {
@@ -166,12 +162,10 @@
                 }).length;
 
                 return count;
-            }
-            )
+            })
             createChart(transactionChart, 'pie', Object.values(data.transacationTypes), transactionsQty);
 
             generateTable(data)
         })
 </script>
-
 </html>
