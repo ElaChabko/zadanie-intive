@@ -23,8 +23,7 @@ signupForms.addEventListener("submit", function (event) {
     localStorage.setItem('loggedIn', true);
     window.location = 'index.html?page=logOn';
   };
- 
-})
+ })
 
 
 

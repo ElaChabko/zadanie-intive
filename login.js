@@ -24,8 +24,4 @@ function authenticate(userEmail, password) {
       } 
             
         return "Błędny e-mail lub hasło";
-    
-    
-
-    
-}
+    }

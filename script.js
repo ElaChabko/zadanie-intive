@@ -1,4 +1,3 @@
-
 const params = (new URL(document.location)).searchParams;
 
 let activePage = params.get("page") || "home";
@@ -31,7 +30,6 @@ if(activePage === "register") {
     loginForm.style.display = 'none';
     logOn.style.display = 'none';
     logOutLink.style.display = 'none';
-
 }
 
 if(activePage === "login") {
@@ -42,7 +40,6 @@ if(activePage === "login") {
     loginForm.style.display = '';
     logOn.style.display = 'none';
     logOutLink.style.display = 'none';
-
 }
 
 if(activePage === "logOn") {
@@ -53,7 +50,6 @@ if(activePage === "logOn") {
     loginForm.style.display = 'none';
     logOn.style.display = '';
     logOutLink.style.display = '';
-
 }
 
 registerLink.addEventListener("click", function (event) {
@@ -63,7 +59,6 @@ registerLink.addEventListener("click", function (event) {
     activePage = "register";
     // set url
     location.href = "index.html?page=register";
-
 })
 
 loginLink.addEventListener("click", function (event) {
@@ -73,7 +68,6 @@ loginLink.addEventListener("click", function (event) {
     activePage = "login";
     // set url
     location.href = "index.html?page=login";
-
 })
 
 logOn.addEventListener("click", function (event) {
@@ -83,7 +77,6 @@ logOn.addEventListener("click", function (event) {
     activePage = "logOn";
     // set url
     location.href = "index.html?page=logOn";
-
 })
 
 logOutLink.addEventListener("click", function (event) {
@@ -93,5 +86,4 @@ logOutLink.addEventListener("click", function (event) {
     activePage = "home";
     // set url
     location.href = "index.html";
-
 })
