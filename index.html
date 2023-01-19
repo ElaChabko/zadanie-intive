@@ -91,7 +91,6 @@
     </main>
 </body>
 
-
 <script>
     async function fetchData(url = '') {
         const response = await fetch(url);
@@ -131,12 +130,12 @@
             } else  if(transaction.type === 4){
                 iconElement.src = 'online-payment.png';
             }
-
             const textElement = document.createElement('span');
             textElement.classList.add("textElement");
             textElement.innerHTML = data.transacationTypes[transaction.type];
             const rowElement = document.createElement("tr");
             const cellElement = document.createElement("td");
+            cellElement.classList.add("cellElement");
             cellElement.innerHTML = transaction.date;
             const cellElement2 = document.createElement("td");
             cellElement2.appendChild(iconElement);
@@ -146,6 +145,7 @@
             const cellElement4 = document.createElement("td");
             cellElement4.innerHTML = transaction.amount;
             const cellElement5 = document.createElement("td");
+            cellElement5.classList.add("cellElement5");
             cellElement5.innerHTML = transaction.balance;
             rowElement.appendChild(cellElement);
             rowElement.appendChild(cellElement2);
@@ -162,7 +162,6 @@
 
     fetchData('https://api.npoint.io/38edf0c5f3eb9ac768bd')
         .then(data => {
-
             const daySummaryLabels = data.transactions.map(element => element.date);
             const daySummaryData = data.transactions.map(element => element.balance);
             createChart(daySummaryChart, 'bar', daySummaryLabels, daySummaryData);
@@ -170,18 +169,14 @@
             const transactionTypeId = Object.keys(data.transacationTypes);
             const transactionsQty = transactionTypeId.map((type) => {
                 const count = data.transactions.filter(element => {
-
                     if (element.type == type) {
                         return true;
                     }
-
                     return false;
                 }).length;
-
                 return count;
             })
             createChart(transactionChart, 'pie', Object.values(data.transacationTypes), transactionsQty);
-
             generateTable(data)
         })
 </script>
