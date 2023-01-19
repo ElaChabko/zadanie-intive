@@ -13,7 +13,6 @@ form {
 }
 
 p>label {
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px 24px;
@@ -30,14 +29,12 @@ fieldset {
     box-sizing: border-box;
 }
 
-
 input:invalid {
     box-shadow: 0 0 4px 1px rgb(255, 255, 255);
 }
 
 input:focus:invalid {
     box-shadow: none;
-
 }
 
 input[type="submit"] {
