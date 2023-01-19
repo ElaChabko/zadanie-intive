@@ -1,3 +1,4 @@
+/* General style */
 html,
 body {
     height: 100%;
@@ -18,7 +19,6 @@ main {
     flex-direction: column;
 }
 
-
 header {
     background-color: #115DA9;
     padding: 1.25em 0px;
@@ -27,12 +27,6 @@ header {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-}
-
-img {
-    object-fit: cover;
-    margin: auto;
-    height: 15em;
 }
 
 .action {
@@ -62,6 +56,10 @@ li a:hover {
     padding: 10px;
 }
 
+/* Home content styles */
+#homeContent {
+    margin: 18em;
+}
 
 h1 {
     margin: 1em;
@@ -77,16 +75,24 @@ p {
     text-align: center;
 }
 
+img {
+    object-fit: cover;
+    margin: auto;
+    height: 15em;
+}
+
+/* LogOn styles */
+html,
+body {
+    height: auto;
+}
+
 body #logOn {
     display: contents;
 }
 
 main #charts {
     margin: 2em;
-}
-
-#homeContent {
-    margin: 18em;
 }
 
 #charts {
@@ -99,7 +105,6 @@ main #charts {
     border-radius: 6px;
     width: 90%;
 }
-
 
 #chart1,
 #chart2 {
@@ -131,7 +136,6 @@ body main #tableContent {
 }
 
 table {
-
     display: flex;
     flex: 5;
     justify-content: center;
@@ -140,7 +144,6 @@ table {
 }
 
 tbody {
-    width: 80%;
     justify-content: center;
     align-items: center;
 }
@@ -200,6 +203,10 @@ th {
         justify-content: start;
         height: 40%;
     }
+    #chart1,
+    #chart2 {
+        height: 15em;
+    }
 
     #pieChart,
     #barChart {
@@ -230,5 +237,21 @@ th {
     .iconElement {
         height: 24px;
         display: block;
+    }
+
+    tbody th:nth-of-type(1) {
+        display: none;
+    }
+
+    tbody th:nth-of-type(5) {
+        display: none;
+    }
+
+    .cellElement {
+        display: none;
+    }
+
+    .cellElement5 {
+        display: none;
     }
 }
