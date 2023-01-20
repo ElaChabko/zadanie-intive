@@ -9,7 +9,6 @@ loginForm.addEventListener("submit", function (event) {
     console.log (event);
     const userEmail = event.target.userEmail.value;
     const password = event.target.password.value;
-
     authenticate(userEmail, password);
 })
 
@@ -22,6 +21,5 @@ function authenticate(userEmail, password) {
         localStorage.setItem('loggedIn', true);
         window.location = 'index.html?page=logOn';
       } 
-            
         return "Błędny e-mail lub hasło";
     }
